@@ -4,6 +4,12 @@
 ; To accomplish this, download Windows Resource Kit (https://www.microsoft.com/en-us/download/details.aspx?id=17657) 
 ;    and execute `remapkey.exe`. (https://superuser.com/questions/514903/remapping-keys-without-external-software)
 ;
+;
+; Cheat Sheet
+; ^ - Ctrl
+; ! - Alt
+; + - Shift
+
 
 ; Cut - Mapped to Alt - x
 Alt & x::
@@ -35,18 +41,38 @@ Alt & f::
 Send ^f
 return
 
-; Home - Mapped to Alt - Left
-Alt & Left::
-Send {Home}
+; Bold - Mapped to Alt - b
+Alt & b::
+Send ^b
 return
 
-; Home with Highlight - Mapped to
-; Alt & Shift & Left::
-; Send, {Shift}{Home}
-; return
+; Italic - Mapped to Alt - i
+Alt & i::
+Send ^i
+return
+
+; Underline - Mapped to Alt - u
+Alt & u::
+Send ^u
+return
+
+; Home - Mapped to Alt - Left
+Alt & Left::
+if GetKeyState(LShift)
+	MsgBox, Shift
+else
+	Send {Home}
+return
 
 ; End - Mapped to Alt - Right
 Alt & Right::
 Send {End}
 return
+
+; Delete - Mapped to Ctrl - Backspace
+^Backspace::
+Send {Del}
+return
+
+
 
