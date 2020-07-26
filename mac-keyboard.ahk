@@ -61,6 +61,11 @@ Alt & t::
 Send ^t
 return
 
+; Close window - Mapped to Alt - W
+Alt & w::
+Send !{F4}
+return
+
 ; Home - Mapped to Alt - Left
 Alt & Left::
 if GetKeyState("LShift") {
@@ -84,5 +89,8 @@ return
 Send {Del}
 return
 
-
+; Ctrl Click - Mapped to Alt - Left Mouse Click
+Alt & LButton::
+Send ^{LButton}
+return
 
