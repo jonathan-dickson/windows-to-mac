@@ -56,17 +56,32 @@ Alt & u::
 Send ^u
 return
 
+; New Tab - Mapped to Alt - t
+Alt & t::
+Send ^t
+return
+
+; Close window - Mapped to Alt - W
+Alt & w::
+Send !{F4}
+return
+
 ; Home - Mapped to Alt - Left
 Alt & Left::
-if GetKeyState(LShift)
-	MsgBox, Shift
-else
+if GetKeyState("LShift") {
+	Send {ShiftDown}{Home}{ShiftUp}
+} else {
 	Send {Home}
+}
 return
 
 ; End - Mapped to Alt - Right
 Alt & Right::
-Send {End}
+if GetKeyState("LShift") {
+	Send {ShiftDown}{End}{ShiftUp}
+} else {
+	Send {End}
+}
 return
 
 ; Delete - Mapped to Ctrl - Backspace
@@ -74,5 +89,8 @@ return
 Send {Del}
 return
 
-
+; Ctrl Click - Mapped to Alt - Left Mouse Click
+Alt & LButton::
+Send ^{LButton}
+return
 
